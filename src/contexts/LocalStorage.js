@@ -44,7 +44,7 @@ function reducer(state, { type, payload }) {
 function init() {
   const defaultLocalStorage = {
     [VERSION]: CURRENT_VERSION,
-    [DARK_MODE]: true,
+    [DARK_MODE]: false,
     [DISMISSED_PATHS]: {},
     [SAVED_ACCOUNTS]: [],
     [SAVED_TOKENS]: {},

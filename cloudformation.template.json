@@ -1,6 +1,6 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "uniswap.info site",
+  "Description": "sushiswap.vision site",
   "Outputs": {
     "DeploymentAccessKeyId": {
       "Description": "Access key ID for deploying to the S3 bucket",
@@ -82,12 +82,12 @@
       "Type": "AWS::CertificateManager::Certificate",
       "Description": "The certificate used to secure the CloudFront distribution",
       "Properties": {
-        "DomainName": "uniswap.info",
+        "DomainName": "sushiswap.vision",
         "ValidationMethod": "DNS",
         "Tags": [
           {
             "Key": "Name",
-            "Value": "uniswap.info"
+            "Value": "sushiswap.vision"
           },
           {
             "Key": "Stack",
@@ -241,10 +241,10 @@
               "ResponsePagePath": "/"
             }
           ],
-          "Comment": "uniswap.info",
+          "Comment": "sushiswap.vision",
           "Enabled": true,
           "Aliases": [
-            "uniswap.info"
+            "sushiswap.vision"
           ],
           "DefaultRootObject": "index.html",
           "HttpVersion": "http2",

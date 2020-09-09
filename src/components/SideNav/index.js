@@ -23,7 +23,7 @@ const Wrapper = styled.div`
   z-index: 9999;
   box-sizing: border-box;
   /* background-color: #1b1c22; */
-  background: linear-gradient(193.68deg, #1b1c22 0.68%, #000000 100.48%);
+  background: linear-gradient(193.68deg, #8c6651 0.68%, #705240 100.48%);
   color: ${({ theme }) => theme.bg2};
 
   @media screen and (max-width: 800px) {
@@ -164,27 +164,17 @@ function SideNav({ history }) {
           </AutoColumn>
           <AutoColumn gap="0.5rem" style={{ marginLeft: '.75rem', marginBottom: '4rem' }}>
             <HeaderText>
-              <Link href="https://uniswap.org" target="_blank">
-                Uniswap.org
+              <Link href="https://sushiswapclassic.org" target="_blank">
+                sushiswapclassic.org
               </Link>
             </HeaderText>
             <HeaderText>
-              <Link href="https://v1.uniswap.info" target="_blank">
-                V1 Analytics
-              </Link>
-            </HeaderText>
-            <HeaderText>
-              <Link href="https://uniswap.org/docs/v2" target="_blank">
-                Docs
-              </Link>
-            </HeaderText>
-            <HeaderText>
-              <Link href="https://discord.com/invite/XErMcTq" target="_blank">
+              <Link href="https://discord.gg/hJ2p555" target="_blank">
                 Discord
               </Link>
             </HeaderText>
             <HeaderText>
-              <Link href="https://twitter.com/UniswapProtocol" target="_blank">
+              <Link href="https://twitter.com/SushiSwap" target="_blank">
                 Twitter
               </Link>
             </HeaderText>
