@@ -169,6 +169,11 @@ function SideNav({ history }) {
               </Link>
             </HeaderText>
             <HeaderText>
+              <Link href="https://help.sushidocs.com/" target="_blank">
+                Docs
+              </Link>
+            </HeaderText>
+            <HeaderText>
               <Link href="https://discord.gg/hJ2p555" target="_blank">
                 Discord
               </Link>
