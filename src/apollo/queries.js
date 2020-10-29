@@ -33,12 +33,11 @@ export const GET_BLOCK = gql`
   }
 `
 
-export const GET_BLOCKS = (timestamps) => {
+export const GET_BLOCKS = timestamps => {
   let queryString = 'query blocks {'
-  queryString += timestamps.map((timestamp) => {
-    return `t${timestamp}:blocks(first: 1, orderBy: timestamp, orderDirection: desc, where: { timestamp_gt: ${timestamp}, timestamp_lt: ${
-      timestamp + 600
-    } }) {
+  queryString += timestamps.map(timestamp => {
+    return `t${timestamp}:blocks(first: 1, orderBy: timestamp, orderDirection: desc, where: { timestamp_gt: ${timestamp}, timestamp_lt: ${timestamp +
+      600} }) {
       number
     }`
   })
@@ -49,7 +48,7 @@ export const GET_BLOCKS = (timestamps) => {
 export const POSITIONS_BY_BLOCK = (account, blocks) => {
   let queryString = 'query blocks {'
   queryString += blocks.map(
-    (block) => `
+    block => `
       t${block.timestamp}:liquidityPositions(where: {user: "${account}"}, block: { number: ${block.number} }) {
         liquidityTokenBalance
         pair  {
@@ -67,7 +66,7 @@ export const POSITIONS_BY_BLOCK = (account, blocks) => {
 export const PRICES_BY_BLOCK = (tokenAddress, blocks) => {
   let queryString = 'query blocks {'
   queryString += blocks.map(
-    (block) => `
+    block => `
       t${block.timestamp}:token(id:"${tokenAddress}", block: { number: ${block.number} }) {
         derivedETH
       }
@@ -75,7 +74,7 @@ export const PRICES_BY_BLOCK = (tokenAddress, blocks) => {
   )
   queryString += ','
   queryString += blocks.map(
-    (block) => `
+    block => `
       b${block.timestamp}: bundle(id:"1", block: { number: ${block.number} }) {
         ethPrice
       }
@@ -103,7 +102,7 @@ export const TOP_LPS_PER_PAIRS = gql`
 export const HOURLY_PAIR_RATES = (pairAddress, blocks) => {
   let queryString = 'query blocks {'
   queryString += blocks.map(
-    (block) => `
+    block => `
       t${block.timestamp}: pair(id:"${pairAddress}", block: { number: ${block.number} }) {
         token0Price
         token1Price
@@ -118,7 +117,7 @@ export const HOURLY_PAIR_RATES = (pairAddress, blocks) => {
 export const SHARE_VALUE = (pairAddress, blocks) => {
   let queryString = 'query blocks {'
   queryString += blocks.map(
-    (block) => `
+    block => `
       t${block.timestamp}:pair(id:"${pairAddress}", block: { number: ${block.number} }) {
         reserve0
         reserve1
@@ -135,7 +134,7 @@ export const SHARE_VALUE = (pairAddress, blocks) => {
   )
   queryString += ','
   queryString += blocks.map(
-    (block) => `
+    block => `
       b${block.timestamp}: bundle(id:"1", block: { number: ${block.number} }) {
         ethPrice
       }
@@ -146,7 +145,7 @@ export const SHARE_VALUE = (pairAddress, blocks) => {
   return gql(queryString)
 }
 
-export const ETH_PRICE = (block) => {
+export const ETH_PRICE = block => {
   const queryString = block
     ? `
     query bundles {
@@ -370,7 +369,7 @@ export const PAIR_DAY_DATA = gql`
 
 export const PAIR_DAY_DATA_BULK = (pairs, startTimestamp) => {
   let pairsString = `[`
-  pairs.map((pair) => {
+  pairs.map(pair => {
     return (pairsString += `"${pair}"`)
   })
   pairsString += ']'
@@ -405,7 +404,7 @@ export const GLOBAL_CHART = gql`
   }
 `
 
-export const GLOBAL_DATA = (block) => {
+export const GLOBAL_DATA = block => {
   const queryString = ` query uniswapFactories {
       uniswapFactories(
        ${block ? `block: { number: ${block}}` : ``}
@@ -652,7 +651,7 @@ export const PAIRS_BULK = gql`
 
 export const PAIRS_HISTORICAL_BULK = (block, pairs) => {
   let pairsString = `[`
-  pairs.map((pair) => {
+  pairs.map(pair => {
     return (pairsString += `"${pair}"`)
   })
   pairsString += ']'
@@ -720,7 +719,7 @@ export const TOKENS_CURRENT = gql`
   }
 `
 
-export const TOKENS_DYNAMIC = (block) => {
+export const TOKENS_DYNAMIC = block => {
   const queryString = `
     ${TokenFields}
     query tokens {
