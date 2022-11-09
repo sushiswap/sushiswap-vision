@@ -39,3 +39,13 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: 'us-east-1'
           SOURCE_DIR: 'build'
+      
+      - name: pin4everland
+        id: pin4everland
+        uses: 4everland/pin-action@v1.3
+        with:
+          EVER_TOKEN: ${{secrets.EVER_TOKEN}}
+          EVER_PROJECT_NAME: 'sushiswap-vision'
+          EVER_PROJECT_PLAT: 'AR'
+          BUILD_LOCATION: './build'
+          
